@@ -10,7 +10,7 @@ function App() {
   const [status, setStatus] = useState("Stopped");
   useEffect(() => {
     const run = async () => {
-      let name;
+      let ID;
       if (
         window.Telegram &&
         window.Telegram.WebApp &&
@@ -18,8 +18,9 @@ function App() {
       ) {
         const params = new URLSearchParams(window.Telegram.WebApp.initData);
         const user = JSON.parse(decodeURIComponent(params.get("user")));
-        name = user.username;
-        alert(name);
+        console.log(user);
+        ID = user.id;
+        alert(ID);
       }
     };
     run();
