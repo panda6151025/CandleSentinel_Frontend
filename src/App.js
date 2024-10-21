@@ -1,5 +1,5 @@
 // src/App.js
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css"; // Ensure Font Awesome is imported
@@ -8,11 +8,16 @@ import "./App.css";
 function App() {
   const [currencyPair, setCurrencyPair] = useState("");
   const [status, setStatus] = useState("Stopped");
-  const telegramUser = window.Telegram.WebApp.initDataUnsafe?.user;
+  useEffect(() => {
+    // Check if the Telegram WebApp is initialized and user data is available
+    const telegramUser = window.Telegram.WebApp.initDataUnsafe?.user;
 
-  if (telegramUser) {
-    alert(`User ID`);
-  }
+    if (telegramUser) {
+      alert(`User ID: ${telegramUser.id}`); // Show user ID
+    } else {
+      alert("User information not found or Telegram WebApp not initialized.");
+    }
+  }, []); // Empty dependency array ensures this runs once on mount
 
   const handleStartMonitoring = async () => {
     if (!currencyPair) {
