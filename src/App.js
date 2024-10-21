@@ -30,15 +30,20 @@ function App() {
       return;
     }
     setStatus("Monitoring...");
-    await axios.post("/api/start-monitoring", {
-      currencyPair,
-      id,
-    });
+    await axios.post(
+      "https://candle-sentinel-server.vercel.app/api/start-monitoring",
+      {
+        currencyPair,
+        id,
+      }
+    );
   };
 
   const handleStopMonitoring = async () => {
     setStatus("Stopped");
-    await axios.post("/api/stop-monitoring");
+    await axios.post(
+      "https://candle-sentinel-server.vercel.app/api/stop-monitoring"
+    );
   };
 
   return (
