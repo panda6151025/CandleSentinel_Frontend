@@ -32,6 +32,7 @@ function App() {
     setStatus("Monitoring...");
     await axios.post("/api/start-monitoring", {
       currencyPair,
+      id,
     });
   };
 
