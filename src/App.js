@@ -8,14 +8,19 @@ import "./App.css";
 function App() {
   const [currencyPair, setCurrencyPair] = useState("");
   const [status, setStatus] = useState("Stopped");
-
+  const telegramUser = window.Telegram.WebApp.initDataUnsafe?.user;
+  if (telegramUser) {
+    alert(telegramUser.userId);
+  }
   const handleStartMonitoring = async () => {
     if (!currencyPair) {
       alert("Please enter a currency pair!");
       return;
     }
     setStatus("Monitoring...");
-    await axios.post("/api/start-monitoring", { currencyPair });
+    await axios.post("/api/start-monitoring", {
+      currencyPair,
+    });
   };
 
   const handleStopMonitoring = async () => {
