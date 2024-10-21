@@ -8,10 +8,10 @@ import "./App.css";
 function App() {
   const [currencyPair, setCurrencyPair] = useState("");
   const [status, setStatus] = useState("Stopped");
-  const telegramUser = window.Telegram.WebApp.initDataUnsafe?.user;
-  if (telegramUser) {
-    alert(telegramUser.id);
-  }
+  // const telegramUser = window.Telegram.WebApp.initDataUnsafe?.user;
+  // if (telegramUser) {
+  //   alert(telegramUser.id);
+  // }
   const handleStartMonitoring = async () => {
     if (!currencyPair) {
       alert("Please enter a currency pair!");
