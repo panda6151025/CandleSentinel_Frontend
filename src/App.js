@@ -17,7 +17,7 @@ function App() {
       ) {
         const params = new URLSearchParams(window.Telegram.WebApp.initData);
         const user = JSON.parse(decodeURIComponent(params.get("user")));
-        name = user.username;
+        const name = user.username;
         alert(name);
       }
     };
