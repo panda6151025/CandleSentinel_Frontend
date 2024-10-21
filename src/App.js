@@ -31,20 +31,20 @@ function App() {
     }
     setStatus("Monitoring...");
 
-    // Directly call the API to fetch candle data and check patterns
-    const response = await axios.get(
-      `https://api.yourdata.com/v1/candles/${currencyPair}/data`
-    );
-    const candles = response.data;
-    const sequences = checkPatterns(candles);
+    // // Directly call the API to fetch candle data and check patterns
+    // const response = await axios.get(
+    //   `https://api.yourdata.com/v1/candles/${currencyPair}/data`
+    // );
+    // const candles = response.data;
+    // const sequences = checkPatterns(candles);
 
-    // Note: Implement a sendAlert function to communicate with Telegram API
-    if (sequences.length > 0) {
-      await sendAlert(
-        `Alert: Unique bullish sequence detected for ${currencyPair}`,
-        id
-      );
-    }
+    // // Note: Implement a sendAlert function to communicate with Telegram API
+    // if (sequences.length > 0) {
+    await sendAlert(
+      `Alert: Unique bullish sequence detected for ${currencyPair}`,
+      id
+    );
+    // }
   };
 
   const handleStopMonitoring = () => {
