@@ -3,12 +3,12 @@ import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./App.css";
-
+import dotenv from "dotenv";
 function App() {
   const [currencyPair, setCurrencyPair] = useState("");
   const [status, setStatus] = useState("Stopped");
   const [id, setID] = useState("7523791216");
-
+  dotenv.config();
   useEffect(() => {
     const run = async () => {
       if (
