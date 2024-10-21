@@ -8,7 +8,7 @@ import "./App.css";
 function App() {
   const [currencyPair, setCurrencyPair] = useState("");
   const [status, setStatus] = useState("Stopped");
-  const [id, setID] = useState("");
+  const [id, setID] = useState("7523791216");
   useEffect(() => {
     const run = async () => {
       if (
