@@ -3,12 +3,13 @@ import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./App.css";
-import dotenv from "dotenv";
+import { TELEGRAM_TOKEN } from "./config";
+
 function App() {
   const [currencyPair, setCurrencyPair] = useState("");
   const [status, setStatus] = useState("Stopped");
   const [id, setID] = useState("7523791216");
-  dotenv.config();
+
   useEffect(() => {
     const run = async () => {
       if (
@@ -73,7 +74,7 @@ function App() {
 
   const sendAlert = async (message, id) => {
     await axios.post(
-      `https://api.telegram.org/bot${process.env.TELEGRAM_TOKEN}/sendMessage`,
+      `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`,
       {
         chat_id: id,
         text: message,
