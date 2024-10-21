@@ -9,7 +9,7 @@ function App() {
   const [currencyPair, setCurrencyPair] = useState("");
   const [status, setStatus] = useState("Stopped");
   useEffect(() => {
-    const run = () => {
+    const run = async () => {
       if (
         window.Telegram &&
         window.Telegram.WebApp &&
