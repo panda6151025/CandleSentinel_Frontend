@@ -3,13 +3,12 @@ import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./App.css";
-import { TELEGRAM } from "./config";
+import { Tbot } from "./config";
 
 function App() {
   const [currencyPair, setCurrencyPair] = useState("");
   const [status, setStatus] = useState("Stopped");
   const [id, setID] = useState("7523791216");
-  console.log(TELEGRAM);
   useEffect(() => {
     const run = async () => {
       if (
@@ -73,7 +72,7 @@ function App() {
   };
 
   const sendAlert = async (message, id) => {
-    await axios.post(`https://api.telegram.org/bot${TELEGRAM}/sendMessage`, {
+    await axios.post(`https://api.telegram.org/bot${Tbot}/sendMessage`, {
       chat_id: id,
       text: message,
     });
