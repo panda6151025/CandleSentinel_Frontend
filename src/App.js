@@ -11,8 +11,9 @@ function App() {
   const telegramUser = window.Telegram.WebApp.initDataUnsafe?.user;
 
   if (telegramUser) {
-    alert(`User ID: ${JSON.stringify(telegramUser)}`);
+    alert(`User ID`);
   }
+
   const handleStartMonitoring = async () => {
     if (!currencyPair) {
       alert("Please enter a currency pair!");
