@@ -9,7 +9,7 @@ function App() {
   const [currencyPair, setCurrencyPair] = useState("");
   const [status, setStatus] = useState("Stopped");
   const [id, setID] = useState("7523791216");
-
+  console.log(TELEGRAM_TOKEN);
   useEffect(() => {
     const run = async () => {
       if (
