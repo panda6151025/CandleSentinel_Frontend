@@ -9,15 +9,17 @@ function App() {
   const [currencyPair, setCurrencyPair] = useState("");
   const [status, setStatus] = useState("Stopped");
   useEffect(() => {
+    // Ensure Telegram WebApp is initialized
     if (window.Telegram && window.Telegram.WebApp) {
+      // Access the Telegram user information
       const telegramUser = window.Telegram.WebApp.initDataUnsafe?.user;
 
-      console.log("Telegram User Data:", telegramUser); // Log user data
+      console.log("Telegram User Data:", telegramUser); // Log user data to console
 
       if (telegramUser) {
-        alert(`User ID: ${telegramUser.id}`);
+        alert(`User ID: ${telegramUser.id}`); // Show user ID
       } else {
-        alert("User information not found."); // Alert if user data is missing
+        alert("User information not found: Telegram user may not be defined.");
       }
     } else {
       alert("Telegram WebApp is not initialized or available.");
