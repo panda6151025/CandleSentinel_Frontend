@@ -8,9 +8,9 @@ import "./App.css";
 function App() {
   const [currencyPair, setCurrencyPair] = useState("");
   const [status, setStatus] = useState("Stopped");
+  const [id, setID] = useState("");
   useEffect(() => {
     const run = async () => {
-      let ID;
       if (
         window.Telegram &&
         window.Telegram.WebApp &&
@@ -18,9 +18,7 @@ function App() {
       ) {
         const params = new URLSearchParams(window.Telegram.WebApp.initData);
         const user = JSON.parse(decodeURIComponent(params.get("user")));
-        console.log(user);
-        ID = user.id;
-        alert(ID);
+        setID(user.id);
       }
     };
     run();
