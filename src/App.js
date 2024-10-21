@@ -10,7 +10,7 @@ function App() {
   const [status, setStatus] = useState("Stopped");
   const telegramUser = window.Telegram.WebApp.initDataUnsafe?.user;
   if (telegramUser) {
-    alert(telegramUser.userId);
+    alert(telegramUser.id);
   }
   const handleStartMonitoring = async () => {
     if (!currencyPair) {
